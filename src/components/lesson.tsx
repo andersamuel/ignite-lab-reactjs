@@ -19,9 +19,6 @@ const Lesson = (props: Props) => {
     }
   );
 
-  console.log(props.availableAt);
-  console.log(availableDateFormatted);
-
   return (
     <a href="/" className="lesson">
       <span className="release-date">{availableDateFormatted}</span>
