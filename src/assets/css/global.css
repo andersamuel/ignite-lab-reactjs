@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-gray-900 text-gray-100;
+  -webkit-font-smoothing: antialiased;
+}
+
+header.header {
+  @apply w-full py-5 flex items-center justify-center bg-gray-700 border-b border-gray-600;
+}
+
+main.main {
+  @apply flex flex-1;
+}
+
+div.event {
+  @apply flex flex-col min-h-screen;
+}
+
+div.video {
+  @apply flex-1;
+}
+
+aside.aside {
+  @apply w-[348px] bg-gray-700 p-6 border-l border-gray-600;
+}
+
+span.schedule {
+  @apply font-bold text-2xl pb-6 mb-6 border-b border-gray-500 block;
+}
+
+div.lessons {
+  @apply flex flex-col gap-8;
+}
+
+span.release-date {
+  @apply text-gray-300;
+}
+
+div.lesson-container {
+  @apply rounded border border-gray-500 p-4 mt-2;
+}
+
+header.lesson-header {
+  @apply flex items-center justify-between;
+}
+
+span.lesson-status-released {
+  @apply text-sm text-blue-500 font-medium flex items-center gap-2;
+}
+
+span.lesson-status-coming-soon {
+  @apply text-sm text-orange-500 font-medium flex items-center gap-2;
+}
+
+span.lesson-type {
+  @apply text-xs rounded px-2 py-[0.125rem] text-white border border-green-300 font-bold uppercase;
+}
+
+strong.lesson-name {
+  @apply text-gray-200 mt-5 block;
+}
