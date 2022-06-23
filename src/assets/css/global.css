@@ -19,10 +19,6 @@ div.event {
   @apply flex flex-col min-h-screen;
 }
 
-div.video {
-  @apply flex-1;
-}
-
 aside.aside {
   @apply w-[348px] bg-gray-700 p-6 border-l border-gray-600;
 }
@@ -40,7 +36,7 @@ span.release-date {
 }
 
 div.lesson-container {
-  @apply rounded border border-gray-500 p-4 mt-2;
+  @apply rounded border border-gray-500 p-4 mt-2 group-hover:border-green-500;
 }
 
 header.lesson-header {
@@ -61,4 +57,96 @@ span.lesson-type {
 
 strong.lesson-name {
   @apply text-gray-200 mt-5 block;
+}
+
+div.video {
+  @apply flex-1;
+}
+
+div.player {
+  @apply bg-black flex justify-center;
+}
+
+div.video-player {
+  @apply h-full w-full max-w-[1180px] max-h-[60vh] aspect-video;
+}
+
+div.lesson-info {
+  @apply p-8 max-w-[1180px] mx-auto;
+}
+
+div.title-description {
+  @apply flex items-start gap-16;
+}
+
+div.description {
+  @apply flex-1;
+}
+
+div.description h1 {
+  @apply text-2xl font-bold;
+}
+
+div.description p {
+  @apply mt-4  to-gray-200 leading-relaxed;
+}
+
+div.teacher {
+  @apply flex items-center gap-4 mt-5;
+}
+
+div.teacher img {
+  @apply h-16 w-16 rounded-full border-2 border-blue-500;
+}
+
+div.about-teacher {
+  @apply leading-relaxed;
+}
+
+div.about-teacher strong {
+  @apply font-bold text-2xl block;
+}
+
+div.about-teacher span {
+  @apply to-gray-200 text-sm block;
+}
+
+div.buttons {
+  @apply flex flex-col gap-4;
+}
+
+div.buttons a.discord {
+  @apply p-4 text-sm bg-green-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-green-700 transition-colors;
+}
+
+div.buttons a.challenge {
+  @apply p-4 text-sm border border-blue-500 text-blue-500 flex items-center rounded font-bold uppercase gap-2 justify-center hover:bg-blue-500 hover:text-gray-900 transition-colors;
+}
+
+div.additional {
+  @apply gap-8 mt-20 grid grid-cols-2;
+}
+
+div.additional a {
+  @apply bg-gray-700 rounded overflow-hidden flex items-stretch gap-6 hover:bg-gray-600 transition-colors;
+}
+
+div.additional a div.icon {
+  @apply bg-green-700 h-full p-6 flex items-center;
+}
+
+div.additional a div.content {
+  @apply py-6 leading-relaxed;
+}
+
+div.additional a strong.title {
+  @apply text-2xl;
+}
+
+div.additional a p.description {
+  @apply text-sm to-gray-200 mt-2;
+}
+
+div.additional a div.arrow {
+  @apply h-full p-6 flex items-center;
 }
