@@ -8,47 +8,20 @@ import {
 import { Player, Youtube, DefaultUi } from "@vime/react";
 
 import "@vime/core/themes/default.css";
-import { gql, useQuery } from "@apollo/client";
+import { useGetLessonBySlugQuery } from "../graphql/generated";
 
 interface Props {
   lessonSlug: string;
 }
 
-const GET_LESSON_BY_SLUG = gql`
-  query GetLessonBySlug($slug: String) {
-    lesson(where: { slug: $slug }) {
-      title
-      videoId
-      description
-      teacher {
-        avatarURL
-        bio
-        name
-      }
-    }
-  }
-`;
-interface GetLessonBySlugResponse {
-  lesson: {
-    title: string;
-    videoId: string;
-    description: string;
-    teacher: {
-      avatarURL: string;
-      bio: string;
-      name: string;
-    };
-  };
-}
-
 const Video = (props: Props) => {
-  const { data } = useQuery<GetLessonBySlugResponse>(GET_LESSON_BY_SLUG, {
+  const { data } = useGetLessonBySlugQuery({
     variables: {
       slug: props.lessonSlug,
     },
   });
 
-  if (!data) {
+  if (!data || !data?.lesson) {
     return (
       <div className="flex-1 items-center justify-center flex">
         <CircleNotch size={32} weight="duotone" className="animate-spin" />
@@ -71,16 +44,18 @@ const Video = (props: Props) => {
           <div className="description">
             <h1>{data.lesson.title}</h1>
             <p>{data.lesson.description}</p>
-            <div className="teacher">
-              <img
-                src={data.lesson.teacher.avatarURL}
-                alt={data.lesson.teacher.name}
-              />
-              <div className="about-teacher">
-                <strong>{data.lesson.teacher.name}</strong>
-                <span>{data.lesson.teacher.bio}</span>
+            {data.lesson.teacher && (
+              <div className="teacher">
+                <img
+                  src={data.lesson.teacher.avatarURL}
+                  alt={data.lesson.teacher.name}
+                />
+                <div className="about-teacher">
+                  <strong>{data.lesson.teacher.name}</strong>
+                  <span>{data.lesson.teacher.bio}</span>
+                </div>
               </div>
-            </div>
+            )}
           </div>
           <div className="buttons">
             <a href="/" className="discord">
