@@ -1,6 +1,7 @@
 import React, { useState, FormEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import { Logo } from "../assets/images/logo";
+import code from "../assets/images/code.png";
 import { useCreateSubscriberMutation } from "../graphql/generated";
 
 const Home: React.FC = () => {
@@ -63,7 +64,7 @@ const Home: React.FC = () => {
         </div>
       </div>
 
-      <img src="/src/assets/images/code.png" alt="" />
+      <img src={code} alt="" />
     </div>
   );
 };
